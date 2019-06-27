@@ -20,7 +20,13 @@ facets {
     }
     functionalTest {
         parentSourceSet = 'test'
+        includeInCheckLifecycle = false
     }
+}
+
+test {
+    useJUnitPlatform()
+    
 }
 
 dependencies {

@@ -9,14 +9,14 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh "./gradlew clean cleanIntegTest build test integTest -x functionalTest"
+                    sh "./gradlew clean test build"
                 }
             }
-            post {
-                always {
-                    junit '**/build/test-results/test/*.xml'
-                }
-            }
+        }
+    }
+    post {
+        always {
+            junit 'build/test-results/**/*.xml'
         }
     }
 }
