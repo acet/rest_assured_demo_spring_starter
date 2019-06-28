@@ -1,7 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.1.3.RELEASE'
     id 'java'
-    id "nebula.facet" version "6.0.0"
+    id "nebula.facet" version "6.0.3"
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -15,12 +15,17 @@ repositories {
 }
 
 facets {
-    integTest {
+    integrationTest {
         parentSourceSet = 'test'
     }
     functionalTest {
         parentSourceSet = 'test'
+        includeInCheckLifecycle = false
     }
+}
+
+test {
+    useJUnitPlatform()
 }
 
 dependencies {
